@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <title>Experiencia | TOP CARS SHOP</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kalam:wght@300;400&family=Bebas+Neue&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="portada-lorena" class="cover-page">
+        <div class="main-layout">
+            <div class="panel-1">
+                <h1 id="lorena-title" class="main-hero-title"></h1>
+                <img id="profile-pic-img" src="assets/imagenes/1.jpg" alt="Foto" class="profile-pic">
+                <button class="btn-share-portada" onclick="shareExperienceRobust()">
+                    <i class="fas fa-share-nodes"></i> COMPARTIR CON AMIGOS
+                </button>
+            </div>
+            <div class="panel-2">
+                <div class="polaroid-container">
+                    <div class="carousel-nav-wrapper">
+                        <button class="carousel-btn left" onclick="changePersonalPhoto(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <div class="polaroid-photo">
+                            <img id="main-personal-img" src="assets/imagenes/personal1.jpg" alt="Foto Personal">
+                        </div>
+                        <button class="carousel-btn right" onclick="changePersonalPhoto(1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="polaroid-caption">VEN TE ESTAMOS ESPERANDO</div>
+                </div>
+                <div class="credits-container">
+                    <div id="lorena-logros" class="scrolling-text"></div>
+                </div>
+            </div>
+            <div class="panel-3">
+                <div class="footer-left">
+                    <button class="btn-enter" onclick="enterAnuario()">ACOMPÁÑAME EN ESTE LOGRO / DALE CLIC</button>
+                    <img src="assets/imagenes/logo.png" class="footer-logo">
+                </div>
+                <div class="footer-right-side">
+                    <h3 class="footer-school-name">TOP CARS SHOP</h3>
+                    <p class="footer-slogan">Pasión por los autos, compromiso contigo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="audio-ui" class="audio-control-fixed" onclick="toggleMuteHimno()">
+        <i id="mute-icon" class="fas fa-music"></i>
+        <span id="mute-text">MÚSICA / ON</span>
+    </div>
+
+    <main id="journal-layout" style="display: none;">
+        <header class="journal-header">
+            <h1 class="school-main-title">TOP CARS SHOP</h1>
+        </header>
+        <div class="content-wrapper">
+            <aside class="branding-side-left">
+                <img src="assets/imagenes/logo.png" alt="Logo" class="main-school-logo">
+            </aside>
+            <section class="notebook-container">
+                <div class="notebook-page left-page" id="panel-1"></div>
+                <div class="notebook-page right-page" id="panel-2"></div>
+                
+                <div class="journal-footer-branding">
+                    <p class="decor-slogan">Pasión por los autos, compromiso contigo</p>
+                    <button id="btn-regreso-global" class="btn-regresar-portada" onclick="regresarAPortada()">
+                        REGRESAR / BACK
+                    </button>
+                </div>
+            </section>
+            <aside class="marketing-side">
+                <div class="video-memorial-box">
+                    <div class="video-header"><i class="fas fa-film"></i> NUESTRA AGENCIA</div>
+                    <p class="video-subtitle" style="visibility: hidden;">vacio</p> 
+                    <a href="https://www.youtube.com/watch?v=Z2jkX_801kc" target="_blank" class="btn-play-video"><i class="fas fa-play-circle"></i> VER VIDEO</a>
+                </div>
+                <div class="qr-sticker" onclick="openMarketing()">
+                    <img id="qr-code-img" src="" alt="QR">
+                    <div class="qr-caption"><strong>CONOZCAN NUESTROS SERVICIOS</strong><p>CLIC AQUÍ</p></div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div id="lightbox" class="overlay" style="display: none;">
+        <button class="btn-close-global" onclick="closeLightbox()">×</button>
+        <div class="zoom-polaroid">
+            <img src="assets/imagenes/logo.png" alt="Logo" class="zoom-logo-fixed">
+            <div class="img-frame"><img id="lightbox-image" src="" alt="Zoom"></div>
+            <div class="zoom-text-area">
+                <p id="zoom-text" class="handwritten"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="marketing-modal" class="overlay" style="display: none;">
+        <div class="modal-card flyer-journal">
+            <button class="btn-close-global" onclick="closeMarketing()">×</button>
+            <div class="flyer-content-scroll">
+                <img src="assets/imagenes/logo.png" alt="Flyer Logo" class="flyer-logo-fixed">
+                <h2 class="flyer-school-name">¿BUSCAS TU PRÓXIMO AUTO?</h2>
+                <div class="journal-divider"></div>
+                <p style="margin-bottom: 20px; font-weight: bold; color: #333;">
+                    ¡Tenemos el auto ideal para ti! Ya sea nuevo de agencia o seminuevo certificado, nuestro inventario está listo para estrenar.
+                </p>
+                <div class="flyer-features">
+                    <div class="feature-item"><i class="fas fa-tags"></i><div><strong>Pregunta por nuestras ofertas</strong><p>Créditos a tu medida.</p></div></div>
+                    <div class="feature-item"><i class="fas fa-car"></i><div><strong>Inventario renovado</strong><p>Calidad y seguridad garantizada.</p></div></div>
+                    <div class="feature-item"><i class="fas fa-headset"></i><div><strong>Atención personalizada</strong><p>Déjanos asesorarte hoy.</p></div></div>
+                </div>
+                <p class="flyer-contact">¡PREGUNTA POR TU AUTO AQUÍ!</p>
+                <p class="flyer-contact" style="font-size: 1rem; color: #9f0004;">WhatsApp: +52 55 1234 5678</p>
+                <button class="btn-action-journal" onclick="closeMarketing()">CERRAR / CLOSE</button>
+            </div>
+        </div>
+    </div>
+    <audio id="sndFondoLoop" src="assets/sonidos/himno.mp3" loop></audio>
+    <audio id="sndFxClick" src="assets/sonidos/clic.mp3"></audio>
+    <audio id="sndVozNino"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
